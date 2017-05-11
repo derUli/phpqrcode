@@ -1,6 +1,7 @@
 <?php
 define ( "MODULE_ADMIN_HEADLINE", get_translation ( "PHP_QR_CODE" ) );
 function phpqrcode_admin() {
+	$controller = controllerRegistry::get ( "QRCodeController" );
 	if (get_request_method () == "POST" && Request::hasVar ( "phpqrcode_text" )) {
 		Settings::set ( "phpqrcode_text", Request::getVar ( "phpqrcode_text" ), "str" );
 	}
@@ -35,7 +36,7 @@ function phpqrcode_admin() {
 		<div class="col-xs-6 text-right"></div>
 	</div>
 	<h3><?php translate("preview");?></h3>
-	<p><?php QRcode::png ( $phpqrcode_text ); ?></p>
+	<p><?php $controller->embedPNG ( $phpqrcode_text ); ?></p>
 </form>
 <?php
 }

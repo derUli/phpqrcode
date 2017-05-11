@@ -4,5 +4,8 @@
   "embed" : true,
   "objects" : {
       "QRLib" : "qrlib.php"
+  },
+  "controllers" : {
+  		"QRCodeController" : "controllers/QRCodeController.php"
   }
 }
