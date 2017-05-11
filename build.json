@@ -5,6 +5,6 @@
    "categories" : ["php", "qr", "code", "api", "lib", "encoding"],
    "compatible_from" : "2017.3.2",
    "admin_permission" : "phpqrcode",
-   "custom_acl" : ["phpqrcode"]
+   "custom_acl" : ["phpqrcode"],
    "dependencies" : []
 }
