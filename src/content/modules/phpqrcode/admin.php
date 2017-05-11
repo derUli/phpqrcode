@@ -34,7 +34,7 @@ function phpqrcode_admin() {
 
 		<div class="col-xs-6 text-right"></div>
 	</div>
-
+	<h3><?php translate("preview");?></h3>
 	<p><?php QRcode::png ( $phpqrcode_text ); ?></p>
 </form>
 <?php
