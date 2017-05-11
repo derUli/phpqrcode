@@ -2,7 +2,7 @@
 function phpqrcode_render() {
 	$controller = controllerRegistry::get ( "QRCodeController" );
 	$text = CustomData::getCustomDataOrSetting ( "phpqrcode_text" );
-	if (! StringHelper::isNullOrWhitespace ( $text )) {
+	if (StringHelper::isNullOrWhitespace ( $text )) {
 		$text = "";
 	}
 	
