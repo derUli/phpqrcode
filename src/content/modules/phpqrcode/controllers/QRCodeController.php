@@ -30,6 +30,15 @@ class QRCodeController extends Controller {
 		return Template::executeModuleTemplate ( $this->moduleName, "settings" );
 	}
 	public function contentFilter($text) {
-		return $text;
+		$match = preg_match_all("/\[qrcode](.+)\[\/qrcode]/", $text);
+		if (count ( $match ) > 0) {
+			for($i = 0; $i < count ( $match [0] ); $i ++) {
+				$placeholder = $match [0] [$i];
+				$qrstring = $match [1] [$i];
+				$qrhtml = $this->getEmbedPNG ( $qrstring );
+				$text = str_replace ( $placeholder, $qrhtml, $text );
+			}
+		}
+		return $html;
 	}
 }
