@@ -7,8 +7,11 @@ class QRCodeController extends Controller {
 		QRcode::png ( $text );
 		exit ();
 	}
+	public function getEmbedPNG($text) {
+		return "<img src=\"index.php?sClass=QRCodeController&sMethod=outputPNG&text=" . htmlspecialchars ( $text ) . "\" alt=\"" . htmlspecialchars ( $text ) . "\">";
+	}
 	public function embedPNG($text) {
-		echo "<img src=\"index.php?sClass=QRCodeController&sMethod=outputPNG&text=" . htmlspecialchars ( $text ) . "\" alt=\"" . htmlspecialchars ( $text ) . "\">";
+		echo $this->getEmbedPNG ( $text );
 	}
 	public function render() {
 		$text = CustomData::getCustomDataOrSetting ( "phpqrcode_text" );
@@ -25,5 +28,8 @@ class QRCodeController extends Controller {
 	}
 	public function settings() {
 		return Template::executeModuleTemplate ( $this->moduleName, "settings" );
+	}
+	public function contentFilter($text) {
+		return $text;
 	}
 }
