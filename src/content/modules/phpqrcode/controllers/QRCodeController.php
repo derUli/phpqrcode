@@ -1,5 +1,6 @@
 <?php
 class QRCodeController extends Controller {
+	private $moduleName = "phpqrcode";
 	public function outputPNG() {
 		$text = Request::getVar ( "text" );
 		header ( "Content-Type: image/png" );
