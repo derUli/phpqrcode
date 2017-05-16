@@ -1,12 +1,10 @@
 <?php
-define ( "MODULE_ADMIN_HEADLINE", get_translation ( "PHP_QR_CODE" ) );
-function phpqrcode_admin() {
-	$controller = controllerRegistry::get ( "QRCodeController" );
-	if (get_request_method () == "POST" && Request::hasVar ( "phpqrcode_text" )) {
-		Settings::set ( "phpqrcode_text", Request::getVar ( "phpqrcode_text" ), "str" );
-	}
-	$phpqrcode_text = Settings::get ( "phpqrcode_text" );
-	?>
+$controller = controllerRegistry::get ( "QRCodeController" );
+if (get_request_method () == "POST" && Request::hasVar ( "phpqrcode_text" )) {
+	Settings::set ( "phpqrcode_text", Request::getVar ( "phpqrcode_text" ), "str" );
+}
+$phpqrcode_text = Settings::get ( "phpqrcode_text" );
+?>
 <form action="<?php echo ModuleHelper::buildAdminURL("phpqrcode");?>"
 	method="post">
 	<?php csrf_token_html();?>
@@ -23,7 +21,7 @@ function phpqrcode_admin() {
 	}
 	?>
 	<p>
-		<strong><?php translate("phpqrcode_text")?></strong> <br /> <input
+		<strong><?php translate("phpqrcode_text");?></strong> <br /> <input
 			type="text" name="phpqrcode_text"
 			value="<?php Template::escape($phpqrcode_text);?>"> <br />
 	</p>
@@ -38,5 +36,3 @@ function phpqrcode_admin() {
 	<h3><?php translate("preview");?></h3>
 	<p><?php $controller->embedPNG ( $phpqrcode_text ); ?></p>
 </form>
-<?php
-}

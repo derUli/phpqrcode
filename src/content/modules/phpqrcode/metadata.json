@@ -7,5 +7,6 @@
   },
   "controllers" : {
   		"QRCodeController" : "controllers/QRCodeController.php"
-  }
+  },
+  "main_class" : "QRCodeController"
 }
