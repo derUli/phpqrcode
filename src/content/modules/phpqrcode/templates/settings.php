@@ -21,7 +21,7 @@ $phpqrcode_text = Settings::get ( "phpqrcode_text" );
 	}
 	?>
 	<p>
-		<strong><?php translate("phpqrcode_text")?></strong> <br /> <input
+		<strong><?php translate("phpqrcode_text");?></strong> <br /> <input
 			type="text" name="phpqrcode_text"
 			value="<?php Template::escape($phpqrcode_text);?>"> <br />
 	</p>
