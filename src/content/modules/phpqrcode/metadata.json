@@ -1,6 +1,6 @@
 {
   "source" : "extend",
-  "version" : "1.1.4",
+  "version" : "1.1.4.1",
   "embed" : true,
   "objects" : {
       "QRLib" : "qrlib.php"
@@ -8,5 +8,7 @@
   "controllers" : {
   		"QRCodeController" : "controllers/QRCodeController.php"
   },
+  "admin_permission" : "phpqrcode",
+  "custom_acl" : ["phpqrcode"],
   "main_class" : "QRCodeController"
 }
